@@ -2,6 +2,7 @@ package com.example.jarvis
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
@@ -15,7 +16,19 @@ class MainActivity : AppCompatActivity() {
 
         val new_button = findViewById(R.id.newThing) as ImageView
         val new_commande = findViewById(R.id.new_commande) as TextView
+        val new_reunion = findViewById(R.id.new_reunion) as TextView
+        val accueil = findViewById(R.id.accueil) as View
+
         new_button.setOnClickListener {
+            new_commande.visibility = View.VISIBLE
+            new_reunion.visibility = View.VISIBLE
+        }
+
+        accueil.setOnClickListener {
+            if (new_commande.visibility == View.VISIBLE) {
+                new_commande.visibility = View.INVISIBLE
+                new_reunion.visibility = View.INVISIBLE
+            }
         }
     }
 
