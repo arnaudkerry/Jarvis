@@ -1,5 +1,6 @@
 package com.example.jarvis
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         new_button.setOnClickListener {
             new_commande.visibility = View.VISIBLE
             new_reunion.visibility = View.VISIBLE
+        }
+
+        new_reunion.setOnClickListener {
+            startActivity(Intent(this,NewReunionActivity::class.java))
         }
 
         accueil.setOnClickListener {
