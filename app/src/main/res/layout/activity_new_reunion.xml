@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/nom_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.04" />
 
         <EditText
-            android:id="@+id/editTextTime"
+            android:id="@+id/horaire_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -52,7 +52,7 @@
             app:layout_constraintVertical_bias="0.10" />
 
         <EditText
-            android:id="@+id/editTextTextPostalAddress"
+            android:id="@+id/lieu_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -68,7 +68,7 @@
             app:layout_constraintVertical_bias="0.17" />
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/telephone_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -84,7 +84,7 @@
 
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/contact_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -100,7 +100,7 @@
             app:layout_constraintVertical_bias="0.75" />
 
         <Button
-            android:id="@+id/button_submit"
+            android:id="@+id/button_submit_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -112,7 +112,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <CalendarView
-            android:id="@+id/calendarView"
+            android:id="@+id/date_reunion"
             android:layout_width="355dp"
             android:layout_height="317dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -122,15 +122,15 @@
             app:layout_constraintVertical_bias="0.45" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/liste_reunions"
             android:gravity="right"
-            app:layout_constraintBottom_toTopOf="@+id/button_submit"
+            app:layout_constraintBottom_toTopOf="@+id/button_submit_reunion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+            app:layout_constraintTop_toBottomOf="@+id/telephone_reunion" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
