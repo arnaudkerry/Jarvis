@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Jarvis</string>
+
+    <string-array name="liste_reunions">
+        <item>Mariage/Fiançailles</item>
+        <item>Anniversaire/Baptême</item>
+        <item>Cadeau</item>
+        <item>RDV</item>
+    </string-array>
 </resources>
