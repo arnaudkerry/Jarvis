@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
 
         <TextView
@@ -33,11 +33,11 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toEndOf="@+id/newThing"
-            app:layout_constraintTop_toBottomOf="@+id/new_commande" />
+            app:layout_constraintBottom_toTopOf="@+id/newThing"
+            app:layout_constraintEnd_toEndOf="@+id/new_commande"
+            app:layout_constraintStart_toStartOf="@+id/new_commande"
+            app:layout_constraintTop_toBottomOf="@+id/new_commande"
+            app:layout_constraintVertical_bias="0.97" />
 
         <TextView
             android:id="@+id/new_commande"
@@ -51,9 +51,11 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="@+id/new_reunion"
-            app:layout_constraintStart_toStartOf="@+id/new_reunion"
-            app:layout_constraintTop_toTopOf="@+id/newThing" />
+            app:layout_constraintBottom_toTopOf="@+id/newThing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96" />
 
         <ImageView
             android:id="@+id/newThing"

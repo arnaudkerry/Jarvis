@@ -1,21 +1,32 @@
 package com.example.jarvis
 
+import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jarvis.classes.Reunion
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class NewReunionActivity : AppCompatActivity() {
-    lateinit var valChangedDate: String
+    @RequiresApi(Build.VERSION_CODES.O)
+    var valChangedDate: String = LocalDate.now().toString()
+    lateinit var reunion: Reunion
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_reunion)
         val reunion_date: CalendarView = findViewById(R.id.date_reunion)
-        reunion_date.setOnDateChangeListener { view, year, month, dayOfMonth ->
+        reunion_date?.setOnDateChangeListener { view, year, month, dayOfMonth ->
             // Note that months are indexed from 0. So, 0 means January, 1 means february, 2 means march etc.
-            valChangedDate = "" + dayOfMonth + "-" + (month + 1) + "-" + year
+
+            if(month < 9) valChangedDate = "" + year + "-0" + (month + 1) + "-" + dayOfMonth
+            else valChangedDate = "" + year + "-" + (month + 1) + "-" + dayOfMonth
         }
         val button_submit = findViewById(R.id.button_submit_reunion) as Button
 
@@ -32,9 +43,15 @@ class NewReunionActivity : AppCompatActivity() {
             val reunion_phone: EditText = findViewById(R.id.telephone_reunion)
             val phone = reunion_phone.text
             val reunion_type: Spinner = findViewById(R.id.spinner_reunion)
-            val type = reunion_type.selectedItem
-            println("$name, $horaire ,$lieu, $valChangedDate ,$contact ,$phone ,$type")
+            val type = reunion_type.selectedItem.toString()
+
+
+            var date = LocalDate.parse(valChangedDate, DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.FRANCE))
+            var heure = LocalTime.parse(horaire, DateTimeFormatter.ofPattern("HH:mm", Locale.FRANCE))
+            reunion = Reunion(name,heure,lieu,contact,phone,type,date)
+            reunion.writeOnJson(this)
         }
+        //TODO : Exception sur les élèments non remplies de la réunion (gestion de l'exception par un toast (?)
 
 
     }

@@ -8,6 +8,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.jarvis.classes.Reunion
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var reunion: Reunion = Reunion(null,null,null,null,null,null,null)
+//        reunion.affichageRoot()
         val navigation_view = findViewById(R.id.navigation_view) as View
         val new_button = findViewById(R.id.newThing) as ImageView
         val new_commande = findViewById(R.id.new_commande) as TextView
